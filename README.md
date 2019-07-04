@@ -1,6 +1,7 @@
 KUBEADM CLUSTER
 
 This will set up a 3 node kubernetes cluster using kubeadm https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/
+It will use centos7 as operating system. 
 
 What will you need installed pre installation:
 
