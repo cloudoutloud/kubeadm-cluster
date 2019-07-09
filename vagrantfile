@@ -1,0 +1,36 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+
+  config.vm.provision "shell", path: "main.sh"
+  config.vm.box = "centos/7"
+  
+  ####kube-master####
+  config.vm.define "kube-master" do |kubemaster|
+   kubemaster.vm.hostname = "kube-master"
+   kubemaster.vm.network "public_network", ip: "192.168.0.30", bridge: "en0: Wi-Fi (AirPort)"
+   kubemaster.vm.provision "shell", path: "master.sh"
+  end
+
+  ####kube-worker1####
+  config.vm.define "kube-worker1" do |kubeworker1|
+   kubeworker1.vm.hostname = "kube-worker1"
+   kubeworker1.vm.network "public_network", ip: "192.168.0.31", bridge: "en0: Wi-Fi (AirPort)"
+  end
+
+  ####kube-worker2####
+  config.vm.define "kube-worker2" do |kubeworker2|
+   kubeworker2.vm.hostname = "kube-worker2"
+   kubeworker2.vm.network "public_network", ip: "192.168.0.32", bridge: "en0: Wi-Fi (AirPort)"
+  end
+  
+  ####CPU & MEM for VM's####
+  config.vm.provider "virtualbox" do |v|
+   v.customize ["modifyvm", :id, "--memory", "2000"]
+   v.customize ["modifyvm", :id, "--cpus", "2"]
+  end
+ 
+end
+
+
