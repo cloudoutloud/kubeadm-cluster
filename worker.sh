@@ -1,7 +1,5 @@
 #!/bin/bash
 
-use scp to retrive bootstrap file from master node
-
 # Join worker nodes to the cluster
 echo "Joining worker node to cluster, may take some time.."
 yum install -q -y sshpass >/dev/null 2>&1
