@@ -48,6 +48,15 @@ alias kl='kubectl logs'
 EOF
 source ~/.bashrc
 
+# Enable ssh password authentication
+echo "Enable ssh password authentication"
+sed -i 's/^PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config
+systemctl reload sshd
+
+# Set Root password
+echo "Set root password"
+echo "kubeadmin" | passwd --stdin root >/dev/null 2>&1
+
 #Rebooting node
 echo 'Setup complete rebooting node...'
 sleep 10 && reboot
