@@ -54,9 +54,10 @@ net.bridge.bridge-nf-call-iptables = 1
 EOF
 sysctl --system
 
-#Add net-tools for networking troubleshooting
-echo 'Adding net-tools'
+#Add net-tools for networking troubleshooting and vim
+echo 'Adding net-tools & vim'
 yum install -y net-tools >/dev/null 2>&1
+yum install vim -y
 
 
 
