@@ -2,7 +2,7 @@
 
 #Set up master node 
 echo 'Initialize master node, please wait may take some time'
-kubeadm init --image-repository registry.aliyuncs.com/google_containers --apiserver-advertise-address=192.168.0.30 --feature-gates=SupportIPVSProxyMode=true
+kubeadm init --image-repository registry.aliyuncs.com/google_containers --apiserver-advertise-address=192.168.0.30 
 
 #Make .kube dir for vagrant user
 echo 'Adding .kube dir for user'
